@@ -1,0 +1,1358 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===============================
+   COLORS
+================================ */
+:root {
+    --primary: #6366f1;
+    --accent: #ec4899;
+}
+
+/* ===============================
+   HERO / HOME PAGE
+================================ */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("../images/pension.jpg") no-repeat center center / cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===============================
+   HERO BOX
+================================ */
+.hero-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-box h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.hero-box p {
+    font-size: 14px;
+    color: #e5e7eb;
+    margin-bottom: 25px;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+
+    border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    color: white;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99,102,241,0.45);
+}
+
+/* ===============================
+   INFO LINKS (ABOUT / CONTACT)
+================================ */
+.info-links {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-links a {
+    font-size: 14px;
+    color: #c7d2fe;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.info-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ===============================
+   LOGIN / REGISTER / OTP FORMS
+================================ */
+.form-box {
+    max-width: 380px;
+    margin: 100px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4338ca;
+}
+
+.form-box label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
+}
+
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    background: linear-gradient(to right, #6366f1, #ec4899);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(99,102,241,0.45);
+}
+/* ===============================
+   USER DASHBOARD
+================================ */
+.dashboard {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    padding: 40px;
+}
+
+.dashboard-card {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.dashboard-card h2 {
+    text-align: center;
+    color: #4f46e5;
+    margin-bottom: 20px;
+}
+
+.dash-btn {
+    display: block;
+    padding: 12px;
+    margin: 10px 0;
+    background: #6366f1;
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.dash-btn:hover {
+    background: #4f46e5;
+}
+
+.logout {
+    background: #ef4444;
+}
+/* ===============================
+   PROFILE PAGE
+================================ */
+.profile-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.profile-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+.profile-card h2 {
+    text-align: center;
+    color: #4f46e5;
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   CLEAN PROFILE PAGE FIX
+================================ */
+
+.profile-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+}
+
+.profile-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 430px;
+    padding: 35px 30px;
+    border-radius: 22px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* Avatar */
+.profile-avatar {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.profile-avatar img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #6366f1;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Camera icon */
+.change-photo {
+    position: absolute;
+    bottom: 0;
+    right: calc(50% - 45px);
+    background: #6366f1;
+    color: white;
+    font-size: 13px;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+/* Heading */
+.profile-card h2 {
+    text-align: center;
+    margin: 15px 0 25px;
+    color: #4f46e5;
+}
+
+/* Inputs */
+.profile-card label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.profile-card input,
+.profile-card select,
+.profile-card textarea {
+    width: 100%;
+    padding: 13px 14px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    border: 2px solid #e5e7eb;
+    font-size: 14px;
+    background: #f9fafb;
+}
+
+.profile-card textarea {
+    height: 90px;
+    resize: none;
+}
+
+.profile-card input:focus,
+.profile-card select:focus,
+.profile-card textarea:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
+    background: #ffffff;
+}
+
+/* Button */
+.profile-card button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: 30px;
+    background: linear-gradient(to right, #6366f1, #ec4899);
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(99,102,241,0.45);
+}
+/* FORCE ADMIN BACKGROUND */
+.admin-page {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* ===============================
+   GLOBAL PAGE CENTER FIX
+================================ */
+
+/* Login / Register / OTP */
+.form-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+}
+
+/* Dashboard */
+.dashboard {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+}
+
+/* Profile (force center) */
+.profile-bg {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Admin (restore center) */
+.admin-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+/* ==================================================
+   ADMIN FINAL CLEAN LAYOUT (CENTERED & NEAT)
+================================================== */
+
+.admin-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Admin main card */
+.admin-container {
+    width: 100%;
+    max-width: 1000px;   /* perfect balance */
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+}
+
+/* Admin heading */
+.admin-container h2 {
+    text-align: center;
+    color: #4f46e5;
+    margin-bottom: 20px;
+}
+
+/* Admin table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.admin-table th {
+    background: #6366f1;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.admin-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-table tr:hover {
+    background: #f8fafc;
+}
+
+/* Action links */
+.admin-table a {
+    margin: 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.admin-table a:hover {
+    text-decoration: underline;
+}
+/* ==========================================
+   ADMIN PENSION VERIFY – CLEAN & BIGGER
+========================================== */
+
+/* Wider admin container for tables */
+.admin-wide {
+    max-width: 1200px;   /* wider than dashboard */
+}
+
+/* Better spacing for verification pages */
+.admin-container {
+    margin: auto;
+}
+
+/* Improve table readability */
+.admin-container table {
+    margin-top: 20px;
+}
+
+/* Fix bottom-stuck issue */
+.admin-page {
+    align-items: center;   /* center vertically */
+}
+
+/* ==========================================
+   ADMIN PENSION VERIFY – BALANCED LAYOUT
+========================================== */
+
+/* Wider container for verification */
+.admin-wide {
+    max-width: 1200px;
+}
+
+/* Title styling (not a huge box) */
+.admin-title {
+    text-align: center;
+    font-size: 22px;
+    color: #4f46e5;
+    margin-bottom: 25px;
+}
+
+/* Table spacing */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+/* Make table feel bigger */
+.admin-table th,
+.admin-table td {
+    padding: 12px;
+}
+
+/* Remove weird bottom gap */
+.admin-page {
+    align-items: center;
+}
+
+/* ===============================
+   ADMIN VERIFY – COMPACT & NEAT
+================================ */
+
+/* Center page properly */
+.admin-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+/* Card size balanced */
+.admin-wide {
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* Title: small, close to table */
+.admin-title {
+    margin: 0 0 15px 0;   /* 🔑 CLOSE gap */
+    font-size: 22px;
+    text-align: center;
+    color: #4f46e5;
+}
+
+/* Table closer & bigger */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;        /* 🔑 remove gap */
+    font-size: 15px;
+}
+
+/* Header row */
+.admin-table th {
+    background: #6366f1;
+    color: white;
+    padding: 14px;
+}
+
+/* Rows */
+.admin-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Hover */
+.admin-table tr:hover {
+    background: #f9fafb;
+}
+/* ===============================
+   SIMPLE WELCOME PAGE
+================================ */
+
+.simple-welcome {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+}
+
+.welcome-content h1 {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.welcome-content p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.welcome-link {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 2px solid white;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.welcome-link:hover {
+    opacity: 0.8;
+}
+/* ===============================
+   SIMPLE IMAGE WELCOME PAGE
+================================ */
+
+.welcome-page {
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("../images/welcome_pension.jpg") no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-overlay {
+    text-align: center;
+    color: #ffffff;
+    padding: 30px;
+}
+
+.welcome-overlay h1 {
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.welcome-overlay p {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+.welcome-btn {
+    display: inline-block;
+    padding: 14px 34px;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    transition: 0.3s;
+}
+
+.welcome-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+/* ===============================
+   LOGIN PAGE BACKGROUND
+================================ */
+.login-page {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("../images/pension.jpg") no-repeat center center / cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ===============================
+   SINGLE IMAGE WELCOME PAGE
+================================ */
+
+.welcome-page {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("../images/welcome_pension.jpg") no-repeat center center / cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-card {
+    background: rgba(0,0,0,0.45);
+    color: white;
+    padding: 40px 35px;
+    max-width: 520px;
+    width: 100%;
+    border-radius: 22px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.welcome-card h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.welcome-sub {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 18px;
+}
+
+.welcome-about {
+    font-size: 14.5px;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 26px;
+}
+
+/* LOGIN BUTTON */
+.welcome-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+.welcome-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* CONTACT INFO */
+.welcome-contact {
+    border-top: 1px solid rgba(255,255,255,0.25);
+    padding-top: 18px;
+    font-size: 13.5px;
+    opacity: 0.85;
+}
+
+.welcome-contact p {
+    margin: 6px 0;
+}
+/* ===============================
+   USER DASHBOARD BACKGROUND
+================================ */
+
+.dashboard-page {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("../images/dashboard_bg.jpg") no-repeat center center / cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+/* ===============================
+   DASHBOARD CARD (COMPACT)
+================================ */
+
+.dashboard-box {
+    max-width: 520px;          /* controls width */
+    width: 100%;
+    padding: 25px 25px;       /* compact padding */
+    margin: 0;
+}
+
+/* Reduce heading sizes */
+.dashboard-box h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.dashboard-box h3 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* ===============================
+   DASHBOARD BUTTONS (COMPACT)
+================================ */
+
+.dashboard-box .dash-btn {
+    padding: 9px;
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+/* ===============================
+   DASHBOARD TABLE (SMALL)
+================================ */
+
+.dashboard-box table {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.dashboard-box th,
+.dashboard-box td {
+    padding: 6px;
+}
+
+/* Hide heavy borders */
+.dashboard-box table {
+    border-collapse: collapse;
+}
+
+.dashboard-box th {
+    background: #6366f1;
+    color: white;
+}
+/* ===============================
+   DASHBOARD GRID LAYOUT
+================================ */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 15px 0;
+}
+
+/* Dashboard cards */
+.dash-card {
+    background: rgba(255,255,255,0.9);
+    padding: 14px;
+    border-radius: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.25s;
+}
+
+/* Hover effect */
+.dash-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+    background: white;
+}
+
+/* Logout stays different */
+.logout {
+    margin-top: 15px;
+}
+.btn.outline {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.btn.outline:hover {
+    background: rgba(255,255,255,0.2);
+}
+/* ===============================
+   AUTH PAGES BACKGROUND (LOGIN / REGISTER)
+================================ */
+.auth-bg {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("../images/pension.jpg") no-repeat center center / cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+/* ===============================
+   DASHBOARD ALERT COLORS
+================================ */
+.alert-container {
+    margin: 15px 0;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Alert Types */
+.alert.success {
+    background: #dcfce7;
+    color: #166534;
+    border-left: 6px solid #22c55e;
+}
+
+.alert.info {
+    background: #e0f2fe;
+    color: #075985;
+    border-left: 6px solid #0ea5e9;
+}
+
+.alert.warning {
+    background: #fef9c3;
+    color: #854d0e;
+    border-left: 6px solid #f59e0b;
+}
+
+.alert.danger {
+    background: #fee2e2;
+    color: #7f1d1d;
+    border-left: 6px solid #ef4444;
+}
+/* ===============================
+   ADMIN FORM IMPROVEMENTS
+================================ */
+
+/* Center admin page content */
+.admin-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    padding: 40px;
+}
+
+/* Proper admin card size */
+.admin-container.admin-narrow {
+    width: 100%;
+    max-width: 520px;   /* 👈 perfect size */
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+}
+
+/* Title */
+.admin-container h2 {
+    text-align: center;
+    color: #4f46e5;
+    margin-bottom: 25px;
+}
+
+/* Form labels */
+.admin-container label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Inputs & selects */
+.admin-container input,
+.admin-container select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    font-size: 14px;
+    margin-bottom: 18px;
+    transition: 0.3s;
+}
+
+/* Focus effect */
+.admin-container input:focus,
+.admin-container select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
+    outline: none;
+}
+
+/* Button */
+.admin-container button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(99,102,241,0.45);
+}
+/* ===============================
+   CHATBOT FULL PAGE LAYOUT
+================================ */
+
+.chatbot-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* MAIN CHAT PANEL */
+.chatbot-container {
+    width: 700px;              /* PERFECT DESKTOP SIZE */
+    height: 520px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* HEADER */
+.chat-header {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: white;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* MESSAGE AREA */
+.chat-messages {
+    flex: 1;
+    padding: 16px;
+    background: #f4f6fb;
+    overflow-y: auto;
+}
+
+/* MESSAGE ROW */
+.chat-row {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.chat-row.user {
+    justify-content: flex-end;
+}
+
+.chat-row.bot {
+    justify-content: flex-start;
+}
+
+/* USER MESSAGE */
+.user-message {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 18px 18px 4px 18px;
+    max-width: 65%;
+    font-size: 14px;
+}
+
+/* BOT MESSAGE */
+.bot-message {
+    background: #e0e7ff;
+    color: #1e3a8a;
+    padding: 12px 16px;
+    border-radius: 18px 18px 18px 4px;
+    max-width: 65%;
+    font-size: 14px;
+}
+
+/* INPUT */
+.chat-input-area {
+    display: flex;
+    border-top: 1px solid #e5e7eb;
+    background: #ffffff;
+}
+
+.chat-input-area input {
+    flex: 1;
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+    outline: none;
+}
+
+.chat-input-area button {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 0 26px;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* Typing Indicator */
+.typing-indicator {
+    display: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #555;
+    font-style: italic;
+}
+
+.typing-indicator span {
+    animation: blink 1.4s infinite both;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    20% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+.quick-replies {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.quick-replies button {
+    background: #eef2ff;
+    border: 1px solid #6366f1;
+    color: #4f46e5;
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.quick-replies button:hover {
+    background: #6366f1;
+    color: white;
+}
+
+.typing-indicator {
+    display: none;
+    font-size: 13px;
+    padding: 8px;
+    font-style: italic;
+    color: #555;
+}
+.chat-input {
+    position: relative;
+    z-index: 999;
+}
+
+.chat-input button {
+    cursor: pointer;
+}
+/* ===== CHATBOT ===== */
+.chatbot-box {
+    max-width: 800px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+/* CHAT ROWS */
+.chat-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.chat-row.user {
+    justify-content: flex-end;
+}
+
+.chat-row.bot {
+    justify-content: flex-start;
+}
+
+/* MESSAGE BUBBLES */
+.user-message {
+    background: #6366f1;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 18px 18px 0 18px;
+    max-width: 70%;
+}
+
+.bot-message {
+    background: #e5e7eb;
+    color: #111;
+    padding: 10px 14px;
+    border-radius: 18px 18px 18px 0;
+    max-width: 70%;
+}
+
+/* TYPING */
+.typing-indicator {
+    display: none;
+    font-size: 13px;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* QUICK BUTTONS */
+.quick-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.quick-buttons button {
+    background: #eef2ff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.quick-buttons button:hover {
+    background: #6366f1;
+    color: white;
+}
+
+/* INPUT */
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 25px;
+    border: 2px solid #e5e7eb;
+}
+
+.chat-input button {
+    width: 50px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+/* ===============================
+   CHATBOT QUICK BUTTONS FIX
+================================ */
+
+/* Container */
+.quick-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 15px 0;
+}
+
+/* Buttons */
+.quick-buttons button {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: #ffffff;                 /* FIX: text visible */
+    border: none;
+    padding: 14px 18px;             /* FIX: size */
+    font-size: 15px;                /* FIX: readable */
+    font-weight: 600;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(99,102,241,0.35);
+}
+
+/* Hover */
+.quick-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(236,72,153,0.45);
+}
+/* ===============================
+   REPORT DASHBOARD
+================================ */
+/* ===== HARD FIX FOR REPORT CHART OVERFLOW ===== */
+/* ===== REPORT CHART SECTION (PROFESSIONAL SIZE) ===== */
+
+.charts-grid {
+    display: flex;
+    gap: 24px;
+    margin: 25px 0;
+}
+
+/* Card */
+.chart-card {
+    flex: 1;
+    background: #ffffff;
+    padding: 18px 20px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+/* Title */
+.chart-card h4 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #4f46e5;
+}
+
+/* Canvas – KEY CHANGE */
+.chart-card canvas {
+    width: 100% !important;
+    height: 260px !important;   /* ⬅️ Perfect professional height */
+}
+.alert-container {
+    margin: 15px 0;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.alert.info {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.alert.success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.alert.warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.alert.danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
