@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome | Pension Tracking System</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<title>Pension Portal</title>
+<link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
 
-<div class="welcome-page">
+<body class="landing-body">
 
-    <div class="welcome-card">
+<!-- NAVBAR -->
+<header class="landing-navbar">
+    <div class="nav-left">Pension Portal</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
 
-        <h1>Welcome</h1>
-        <p class="welcome-sub">Pension Tracking System</p>
+<!-- HERO -->
+<section class="hero-section">
 
-        <p class="welcome-about">
-            A secure digital platform to manage pension applications,
-            verification, and status tracking.
-        </p>
-
-        <a href="login.php" class="welcome-btn">
-            Tap here to Login
-        </a>
-
-        <div class="welcome-contact">
-            <p><strong>Email:</strong> support@pension.gov</p>
-            <p><strong>Phone:</strong> +91 98765 43210</p>
-            <p><strong>Office:</strong> Government Pension Department</p>
-        </div>
-
+    <div class="hero-content">
+        <h1>Secure Your Future</h1>
+        <p>Track pension applications, manage benefits and stay updated easily.</p>
+        <a href="login.php" class="hero-btn">Login to Portal</a>
     </div>
 
-</div>
+</section>
+
+<!-- FEATURES -->
+<section class="feature-section">
+
+    <div class="feature-card">
+        💡
+        <h4>Easy Tracking</h4>
+        <p>Monitor pension status anytime.</p>
+    </div>
+
+    <div class="feature-card">
+        ⚙️
+        <h4>Secure System</h4>
+        <p>Protected with advanced security.</p>
+    </div>
+
+    <div class="feature-card">
+        📈
+        <h4>Fast Processing</h4>
+        <p>Quick approvals and updates.</p>
+    </div>
+
+</section>
 
 </body>
 </html>

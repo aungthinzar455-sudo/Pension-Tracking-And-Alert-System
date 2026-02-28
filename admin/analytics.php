@@ -24,8 +24,18 @@ pending payments, monthly trends and risk indicators.
 </ul>
 
 <div class="alert info">
+📌 Analytics generated using <strong>Power BI</strong>.
+</div>
+
+<div class="alert info">
 📌 Analytics generated using <b>Power BI</b> from system database exports.
 </div>
+
+
+<!-- ⭐ ADD IMAGES HERE -->
+<img src="../assets/images/powerbi/dashboard1.png" width="100%">
+<br><br>
+<img src="../assets/images/powerbi/dashboard2.png" width="100%">
 
 </div>
 </div>

@@ -132,16 +132,23 @@ while ($row = mysqli_fetch_assoc($monthlyChart)) {
 <h3 style="margin-top:30px;">📊 Pension Charts</h3>
 
 <div class="charts-grid">
+
     <div class="chart-card">
         <h4>Paid vs Pending</h4>
-        <canvas id="pensionChart"></canvas>
+        <div class="chart-wrapper">
+            <canvas id="pensionChart"></canvas>
+        </div>
     </div>
 
     <div class="chart-card">
         <h4>Monthly Paid Pension</h4>
-        <canvas id="monthlyChart"></canvas>
+        <div class="chart-wrapper">
+            <canvas id="monthlyChart"></canvas>
+        </div>
     </div>
+
 </div>
+
 
 
 

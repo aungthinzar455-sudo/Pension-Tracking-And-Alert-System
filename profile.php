@@ -99,7 +99,7 @@ if (isset($_POST['save'])) {
 <div class="profile-bg">
     <div class="profile-card">
 
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="profile-form">
 
             <!-- PROFILE PHOTO -->
             <div class="profile-avatar">
@@ -113,7 +113,11 @@ if (isset($_POST['save'])) {
             <!-- HIDDEN FILE INPUT -->
             <input type="file" name="photo" id="photoInput" accept="image/*" hidden>
 
-            <h2>Pensioner Profile</h2>
+            <h2 class="profile-title">Pensioner Profile</h2>
+            <p class="profile-sub">Manage your personal and pension details</p>
+
+             <div class="form-section">
+             <h3>Personal Information</h3>
 
             <label>Date of Birth</label>
             <input type="date" name="dob" value="<?= $profile['dob'] ?? '' ?>" required>
@@ -123,6 +127,11 @@ if (isset($_POST['save'])) {
 
             <label>Aadhaar Number</label>
             <input type="text" name="aadhaar" value="<?= $profile['aadhaar_no'] ?? '' ?>" required>
+
+            </div>
+
+            <div class="form-section">
+            <h3>Bank Details</h3>
 
             <label>Bank Name</label>
             <input type="text" name="bank" value="<?= $profile['bank_name'] ?? '' ?>" required>
@@ -147,7 +156,7 @@ if (isset($_POST['save'])) {
                 }
                 ?>
             </select>
-
+            </div>
             <button name="save">Save Profile</button>
 
         </form>

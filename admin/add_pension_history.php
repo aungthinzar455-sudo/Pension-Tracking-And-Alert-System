@@ -9,11 +9,13 @@ if (isset($_POST['add'])) {
     $amount = $_POST['amount'];
     $status = $_POST['status'];
     $date = $_POST['date'];
+    $deduction = $_POST['deduction'];
+    $netAmount = $amount - $deduction;
+
 
     mysqli_query($conn,
-        "INSERT INTO pension_history 
-         (user_id, month_year, amount, status, credited_date)
-         VALUES ('$user_id','$month','$amount','$status','$date')"
+        "INSERT INTO pension_history (user_id, month_year, amount, deduction, status, credited_date)
+         VALUES ('$user_id','$month','$netAmount','$deduction','$status','$date')"
     );
 
     logActivity(
@@ -115,6 +117,10 @@ $users = mysqli_query($conn, "SELECT id, name FROM users");
     <input type="date" name="date">
 
     <button name="add">Add Record</button>
+
+    <label>Deduction</label>
+    <input type="number" name="deduction" value="0">
+
 </form>
 
 </div>

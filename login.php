@@ -2,32 +2,29 @@
 session_start();
 include "db.php";
 include "send_mail.php";
+include "send_sms.php";
 include "log_activity.php";
-
-logActivity(
-    $conn,
-    'User',
-    $_SESSION['user_id'],
-    'Logged in to system'
-);
-
 
 if (isset($_POST['login'])) {
 
-    $email    = trim($_POST['email']);
-    $password = trim($_POST['password']);
+    $identifier = trim($_POST['identifier']);
+    $password   = trim($_POST['password']);
 
-    $result = mysqli_query(
-        $conn,
-        "SELECT * FROM users WHERE email='$email' AND is_verified=1"
-    );
+    // Find user by email OR phone
+    $query = "SELECT * FROM users 
+              WHERE (email='$identifier' OR phone='$identifier') 
+              AND is_verified=1";
+
+    $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) === 1) {
 
         $user = mysqli_fetch_assoc($result);
 
+        // Check password
         if (password_verify($password, $user['password'])) {
 
+            // Generate OTP
             $loginOtp = rand(100000, 999999);
             $expiry   = date("Y-m-d H:i:s", strtotime("+5 minutes"));
 
@@ -38,54 +35,77 @@ if (isset($_POST['login'])) {
                  WHERE id=".$user['id']
             );
 
-            sendMail(
-                $user['email'],
-                "Login OTP",
-                "Your login OTP is <b>$loginOtp</b><br>
-                 <small>Valid for 5 minutes</small>"
-            );
+            $message = "Your Login OTP is $loginOtp. Valid for 5 minutes.";
 
+            // Send email OTP if email exists
+            if (!empty($user['email'])) {
+                sendMail($user['email'], "Login OTP", $message);
+            }
+
+            // Send SMS OTP if phone exists (demo logs)
+            if (!empty($user['phone'])) {
+                sendSMS($user['phone'], $message);
+            }
+
+            // Save session for OTP verification
             $_SESSION['login_otp_user'] = $user['id'];
 
-            header("Location: verify_login_otp.php");
+            header("Location: verify_otp.php?identifier=" . urlencode($identifier));
             exit();
 
         } else {
             echo "<script>alert('Wrong password');</script>";
         }
+
     } else {
         echo "<script>alert('User not found or not verified');</script>";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="login-bg">
 
-<div class="login-page">
-    <div class="form-box">
-        <h2>Login</h2>
+<div class="login-wrapper">
+
+    <div class="login-glass">
+
+        <h2>Pension Tracking System</h2>
+        <p class="login-sub">Secure Access to Your Future</p>
 
         <form method="post">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button name="login">Login</button>
+
+            <div class="input-group">
+                <input type="text" name="identifier" placeholder="Email or Mobile Number" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="login-options">
+                <label>
+                    <input type="checkbox"> Remember Me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button name="login" class="login-btn-modern">LOGIN</button>
+
         </form>
-        <p style="text-align:center; margin-top:15px;">
-    New user?
-    <a href="register.php" style="color:#6366f1; font-weight:600;">
-        Register here
-    </a>
-</p>
+
+        <p class="signup-text">
+            Don't have an account?
+            <a href="register.php">Sign Up</a>
+        </p>
 
     </div>
+
 </div>
 
 </body>
 </html>
-

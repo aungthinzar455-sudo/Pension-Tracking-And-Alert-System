@@ -45,25 +45,48 @@ if (isset($_POST['apply'])) {
 </head>
 <body>
 
-<div class="page-bg">
-    <div class="form-box">
-    <h2>Apply for Pension</h2>
+<div class="premium-bg">
 
-    <form method="post" enctype="multipart/form-data">
-        <select name="pension_type" required>
-            <option value="">Select Pension Type</option>
-            <option>Government</option>
-            <option>Private</option>
-            <option>Widow</option>
-            <option>Disability</option>
-        </select>
+    <div class="premium-form-card">
 
-        <input type="file" name="aadhaar" accept=".pdf,.jpg,.png" required>
-        <input type="file" name="bank" accept=".pdf,.jpg,.png" required>
+        <div class="form-header">
+            <h2>Apply for Pension</h2>
+            <p>Submit your application and required documents</p>
+        </div>
 
-        <button name="apply">Submit Application</button>
-    </form>
+        <form method="post" enctype="multipart/form-data" class="premium-form">
+
+            <label>Pension Type</label>
+            <select name="pension_type" required>
+                <option value="">Select Pension Type</option>
+                <option>Government</option>
+                <option>Private</option>
+                <option>Widow</option>
+                <option>Disability</option>
+            </select>
+
+            <label>Upload Aadhaar Document</label>
+            <div class="file-upload">
+                <input type="file" name="aadhaar" accept=".pdf,.jpg,.png" required>
+                <span>Choose file</span>
+            </div>
+
+            <label>Upload Bank Proof</label>
+            <div class="file-upload">
+                <input type="file" name="bank" accept=".pdf,.jpg,.png" required>
+                <span>Choose file</span>
+            </div>
+
+            <button name="apply" class="premium-btn">
+                Submit Application
+            </button>
+
+        </form>
+
+    </div>
+
 </div>
+
 
 </body>
 </html>

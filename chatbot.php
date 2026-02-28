@@ -9,48 +9,51 @@ if (!isset($_SESSION['user_id'])) {
 <html>
 <head>
     <title>Help Assistant</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/chatbot.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<div class="dashboard-page">
-<div class="form-box chatbot-box">
+<div class="chatbot-page">
 
-    <h2>💬 Pension Help Assistant</h2>
+    <div class="chatbot-container">
 
-    <!-- CHAT AREA -->
-    <div id="chat-box" class="chat-box">
-        <div class="chat-row bot">
-            <div class="bot-message">
-                Hello 👋<br>
-                I’m your pension assistant.<br>
-                Ask me about pension, login, OTP, complaints or certificates.
-            </div>
+        <div class="chatbot-header">
+            💬 Pension Help Assistant
         </div>
-    </div>
 
-    <!-- TYPING INDICATOR -->
-    <div id="typing-indicator" class="typing-indicator">
-        Bot is typing<span>.</span><span>.</span><span>.</span>
-    </div>
+        <div id="chat-box" class="chat-box">
 
-    <!-- QUICK BUTTONS -->
-    <div class="quick-buttons">
-        <button type="button" onclick="quickAsk('How to apply pension')">Apply Pension</button>
-        <button type="button" onclick="quickAsk('Check status')">Check Status</button>
-        <button type="button" onclick="quickAsk('Raise complaint')">Complaint</button>
-        <button type="button" onclick="quickAsk('Life certificate')">Life Certificate</button>
-    </div>
+            <div class="message bot">
+                <div class="avatar">🤖</div>
+                <div class="bubble">
+                    Hello 👋 I’m your Pension Assistant.<br>
+                    How can I help you today?
+                </div>
+            </div>
 
-    <!-- INPUT -->
-    <div class="chat-input">
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button type="button" onclick="sendMessage()">➤</button>
+        </div>
+
+        <div class="quick-buttons">
+            <button type="button" onclick="quickAsk('apply pension')">Apply Pension</button>
+            <button type="button" onclick="quickAsk('status')">Check Status</button>
+            <button type="button" onclick="quickAsk('complaint')">Complaint</button>
+            <button type="button" onclick="quickAsk('life certificate')">Life Certificate</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button type="button" onclick="sendMessage()">Send</button>
+        </div>
+
+        <div id="typing-indicator" style="display:none;padding:10px;color:#64748b;">
+            Bot is typing...
+        </div>
+
     </div>
 
 </div>
-</div>
+
+<script src="assets/js/chatbot.js"></script>
 
 </body>
 </html>

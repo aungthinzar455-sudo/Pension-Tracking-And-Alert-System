@@ -1,41 +1,60 @@
 <?php
 include "db.php";
 include "send_mail.php";
+include "send_sms.php";
 
 if (isset($_POST['register'])) {
 
-    $name     = trim($_POST['name']);
-    $email    = trim($_POST['email']);
+    $name = trim($_POST['name']);
+    $identifier = trim($_POST['identifier']);
+
+    // Detect email or phone
+    if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
+        $email = $identifier;
+        $phone = "";
+    } else {
+        $phone = $identifier;
+        $email = "";
+    }
+
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $otp     = rand(100000, 999999);
-    $expiry  = date("Y-m-d H:i:s", strtotime("+5 minutes"));
+    $otp    = rand(100000, 999999);
+    $expiry = date("Y-m-d H:i:s", strtotime("+5 minutes"));
 
-    $check = mysqli_query($conn, "SELECT id FROM users WHERE email='$email'");
+    // Check duplicate
+    if(!empty($email)){
+        $check = mysqli_query($conn, "SELECT id FROM users WHERE email='$email'");
+    } else {
+        $check = mysqli_query($conn, "SELECT id FROM users WHERE phone='$phone'");
+    }
+
     if (mysqli_num_rows($check) > 0) {
-        echo "<script>alert('Email already registered');</script>";
+
+        echo "<script>alert('Email or Phone already registered');</script>";
+
     } else {
 
         mysqli_query(
             $conn,
-            "INSERT INTO users (name,email,password,otp,otp_expires_at,is_verified)
-             VALUES ('$name','$email','$password','$otp','$expiry',0)"
+            "INSERT INTO users (name,email,phone,password,otp,otp_expires_at)
+             VALUES ('$name','$email','$phone','$password','$otp','$expiry')"
         );
 
-        sendMail(
-            $email,
-            "Registration OTP",
-            "Hello <b>$name</b>,<br>
-             Your OTP is <b>$otp</b><br>
-             <small>Valid for 5 minutes</small>"
-        );
+        $message = "Your Registration OTP is $otp. Valid for 5 minutes.";
 
-        header("Location: verify_otp.php?email=$email");
-        exit();
+// Send EMAIL only if email exists
+if (!empty($email)) {
+    sendMail($email, "Registration OTP", $message);
+}
+
+// Send SMS only if phone exists
+if (!empty($phone)) {
+    sendSMS($phone, $message);
+}
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,24 +63,28 @@ if (isset($_POST['register'])) {
 </head>
 <body>
 
-<div class="auth-bg">
-    <div class="form-box">
-        <h2>Create Account</h2>
+<div class="auth-hero">
+    <div class="auth-card">
+
+        <h1>Create Account</h1>
+        <p>Access your pension services securely</p>
 
         <form method="post">
+
             <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button name="register">Register</button>
+            <input type="text" name="identifier" placeholder="Email or Mobile Number" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+
+            <button name="register" class="auth-btn">Continue</button>
+
         </form>
 
-        <p style="text-align:center; margin-top:15px;">
-            Already have an account?
-            <a href="login.php">Login</a>
-        </p>
+        <div class="auth-footer">
+            Already have account? <a href="login.php">Login</a>
+        </div>
+
     </div>
 </div>
 
 </body>
 </html>
-
