@@ -12,8 +12,7 @@ if (isset($_POST['login'])) {
 
     // Find user by email OR phone
     $query = "SELECT * FROM users 
-              WHERE (email='$identifier' OR phone='$identifier') 
-              AND is_verified=1";
+              WHERE (email='$identifier' OR phone='$identifier') ";
 
     $result = mysqli_query($conn, $query);
 

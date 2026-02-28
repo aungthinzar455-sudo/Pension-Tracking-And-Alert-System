@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../db.php";
 include "../send_mail.php";
 include "../log_activity.php";
@@ -6,26 +7,26 @@ include "../log_activity.php";
 if (isset($_POST['add'])) {
     $user_id = $_POST['user_id'];
     $month = $_POST['month'];
-    $amount = $_POST['amount'];
+   $amount = (float) $_POST['amount'];
     $status = $_POST['status'];
     $date = $_POST['date'];
-    $deduction = $_POST['deduction'];
-    $netAmount = $amount - $deduction;
-
+    $deduction = (float) $_POST['deduction'];
+    $netAmount = (float)$amount - (float)$deduction;
 
     mysqli_query($conn,
         "INSERT INTO pension_history (user_id, month_year, amount, deduction, status, credited_date)
          VALUES ('$user_id','$month','$netAmount','$deduction','$status','$date')"
     );
 
+    if (isset($_SESSION['admin_id'])) {
     logActivity(
-    $conn,
-    'Admin',
-    $_SESSION['admin_id'],
-    "Credited pension ₹$amount for $month",
-    $user_id
-);
-
+        $conn,
+        'Admin',
+        $_SESSION['admin_id'],
+        "Credited pension ₹$amount for $month",
+        $user_id
+    );
+}
 
     // 🔔 EMAIL ALERT WHEN PENSION IS CREDITED
     if ($status === "Credited") {

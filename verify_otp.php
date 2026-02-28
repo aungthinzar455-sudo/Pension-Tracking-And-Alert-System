@@ -12,6 +12,7 @@ $identifier = trim($_GET['identifier']);
 
 /* Detect email or phone */
 if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
+    $identifier = mysqli_real_escape_string($conn, trim($identifier));
     $where = "email='$identifier'";
     $isEmail = true;
 } else {
@@ -44,13 +45,15 @@ if (isset($_POST['resend'])) {
 /* ✅ VERIFY OTP */
 if (isset($_POST['verify'])) {
 
-    $otp = trim($_POST['otp']);
+    $otp = mysqli_real_escape_string($conn, trim($_POST['otp']));
 
-    $result = mysqli_query(
-        $conn,
-        "SELECT * FROM users WHERE $where AND otp='$otp'"
-    );
-
+$result = mysqli_query(
+    $conn,
+    "SELECT * FROM users 
+     WHERE $where 
+     AND TRIM(otp) = '$otp'
+     LIMIT 1"
+);
     if ($result && mysqli_num_rows($result) === 1) {
 
         $user = mysqli_fetch_assoc($result);
@@ -108,7 +111,7 @@ if (isset($_POST['verify'])) {
 <p class="login-sub">Enter OTP sent to your email/mobile</p>
 
 <form method="post">
-    <input type="number" name="otp" placeholder="Enter OTP" required>
+    <input type="text" name="otp" placeholder="Enter OTP" required>
     <button name="verify" class="login-btn-modern">Verify</button>
     <button name="resend" formnovalidate class="otp-resend-btn">Resend OTP</button>
 </form>
