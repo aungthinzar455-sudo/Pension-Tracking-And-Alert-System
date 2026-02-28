@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
             // Save session for OTP verification
             $_SESSION['login_otp_user'] = $user['id'];
 
-            header("Location: verify_otp.php?identifier=" . urlencode($identifier));
+            header("Location: verify_login_otp.php");
             exit();
 
         } else {
