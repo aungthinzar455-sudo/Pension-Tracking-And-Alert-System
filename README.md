@@ -116,6 +116,61 @@ Integrated chatbot support system.
 Database structure overview.
 ![Backend Tables](assets/screenshots/Backend%20tables.png)
 
+---
+
+## 👤 User Dashboard & Features
+
+### 📊 User Dashboard Overview
+![User Dashboard 1](assets/screenshots/user%20dashboard%201.png)
+
+![User Dashboard 2](assets/screenshots/user%20dashboard%202.png)
+
+![User Dashboard 3](assets/screenshots/user%20dashboard%203.png)
+
+---
+
+### 📝 Apply for Pension
+User pension application submission interface.
+![User Pension Apply](assets/screenshots/user%20pension%20apply.png)
+
+---
+
+### 📜 Pension History View
+User can track monthly credited pension history.
+![User Pension History](assets/screenshots/user%20pension%20history%20view.png)
+
+---
+
+### 💬 Raise Complaint
+Complaint submission and tracking feature.
+![User Raise Complaint](assets/screenshots/user%20raise%20complaint.png)
+
+---
+
+## 📈 Analytics & Reporting
+
+### 📊 Power BI Dashboard Integration
+Advanced analytics and reporting view.
+![Power BI Screenshot](assets/screenshots/screenshot%20of%20power%20BI.png)
+
+---
+
+### 📑 Tax Summary View
+Tax calculation and pension breakdown summary.
+![Tax Summary](assets/screenshots/tax%20summary.png)
+
+---
+
+### 🔔 Send Alert Message
+Admin sending pension alerts & notifications.
+![Send Alert Message](assets/screenshots/send%20alert%20message.png)
+
+---
+
+### 🔄 Update Pension Record
+Admin pension update functionality.
+![Update Pension](assets/screenshots/update%20pension.png)
+
 ## 👩‍💻 Developed By
 
 Thinzar Aung
